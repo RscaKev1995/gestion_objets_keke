@@ -1,6 +1,21 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
+import { provideRouter } from '@angular/router';
 import { AppComponent } from './app/app.component';
+import { HomePageComponent } from './app/components/home-page/home-page.component';
+import { LoginComponent } from './app/login/login.component';
+import { GuestComponent } from './app/guest/guest.component';
+
+const routes = [
+  { path: '', component: HomePageComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'guest', component: GuestComponent } 
+];
+
+const appConfig = {
+  providers: [
+    provideRouter(routes)
+  ]
+};
 
 bootstrapApplication(AppComponent, appConfig)
   .catch((err) => console.error(err));
