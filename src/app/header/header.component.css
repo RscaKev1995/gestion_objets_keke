@@ -1,0 +1,25 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f8f8;
+  }
+  
+  .logo img {
+    height: 100px;
+    width: 100px;  
+    border-radius: 25px;
+  }
+  
+  .burger-menu {
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .burger-menu span {
+    display: inline-block;
+    width: 30px; 
+    text-align: center;
+  }
+  

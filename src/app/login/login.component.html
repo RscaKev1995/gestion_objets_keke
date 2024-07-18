@@ -1,0 +1,32 @@
+<div class="login-container">
+  <img src="assets/img/pic.png" alt="Image Description" />
+  <form (ngSubmit)="onLogin()">
+    <div>
+      <label for="username">Utilisateur:</label>
+      <input
+        type="text"
+        id="username"
+        [(ngModel)]="username"
+        name="username"
+        placeholder="ton nom d'utilisateur"
+        required
+      />
+    </div>
+    <div>
+      <label for="password">Mot de passe:</label>
+      <input
+        type="password"
+        id="password"
+        [(ngModel)]="password"
+        name="password"
+        placeholder="ton mot de passe"
+        required
+      />
+    </div>
+    <button type="submit">Se connecter</button>
+    <button type="button" (click)="navigateToRegister()">S'inscrire</button>
+  </form>
+  <div [ngStyle]="{ color: messageColor }">
+    {{ message }}
+  </div>
+</div>

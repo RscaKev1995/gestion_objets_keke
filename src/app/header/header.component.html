@@ -1,0 +1,14 @@
+<div class="header">
+  <div class="logo" (click)="navigateHome()">
+    <img src="/assets/img/logo.png" alt="Logo" />
+  </div>
+  <div>
+    <h1>Les objets à Keke</h1>
+  </div>
+  <div class="menu_main">
+    <div class="burger-menu" (click)="toggleMenu()">
+      <span *ngIf="!showMenu">&#9776;</span>
+      <span *ngIf="showMenu">&times;</span>
+    </div>
+  </div>
+</div>

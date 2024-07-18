@@ -1,0 +1,25 @@
+.mainBlock{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+h1{
+    text-align: center;
+    color: darkblue;
+}
+img{
+    height: 400px;
+    border-radius: 45px;
+}
+button {
+    color: white;
+    background-color: darkblue;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 30px;
+}
+button:hover{
+    color:darkblue;
+    background-color: white;
+    cursor: pointer;
+}

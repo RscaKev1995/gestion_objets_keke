@@ -1,0 +1,47 @@
+<div *ngIf="currentUser" class="welcome-message">
+  Salut à toi cher {{ currentUser.username }}
+</div>
+
+<div class="filter">
+  <button (click)="filterArticles('Tout')">Tout</button>
+  <button (click)="filterArticles('Jeu')">Jeux</button>
+  <button (click)="filterArticles('Livre')">Livres</button>
+  <button (click)="filterArticles('Vêtements')">Vêtements</button>
+  <button (click)="filterArticles('Technologie')">Technologie</button>
+  <button (click)="filterArticles('Cuisine')">Cuisine</button>
+</div>
+
+<div class="all_articles" [class.blur]="selectedArticle">
+  <div class="article_little" *ngFor="let article of filteredArticles">
+    <p>{{ article.name }}</p>
+    <img [src]="article.image" alt="{{ article.name }}" />
+    <p>Statut : {{ article.status }}</p>
+    <p>Catégorie : {{ article.category }}</p>
+    <button (click)="showDetails(article.id)">Voir les détails</button>
+    <button
+      *ngIf="article.status === 'Indisponible' || article.status === 'Disparu'"
+    >
+      Demander une réservation
+    </button>
+    <button *ngIf="article.status === 'Disponible'">Réserver</button>
+  </div>
+</div>
+
+<div *ngIf="selectedArticle" class="article_details">
+  <button class="close" (click)="selectedArticle = undefined">✖</button>
+  <h2>Détails de l'article</h2>
+  <p>Nom : {{ selectedArticle.name }}</p>
+  <p>Description : {{ selectedArticle.description }}</p>
+  <p>Statut : {{ selectedArticle.status }}</p>
+  <p>Catégorie : {{ selectedArticle.category }}</p>
+  <img [src]="selectedArticle.image" alt="{{ selectedArticle.name }}" />
+  <button
+    *ngIf="
+      selectedArticle.status === 'Indisponible' ||
+      selectedArticle.status === 'Disparu'
+    "
+  >
+    Demander une réservation
+  </button>
+  <button *ngIf="selectedArticle.status === 'Disponible'">Réserver</button>
+</div>
