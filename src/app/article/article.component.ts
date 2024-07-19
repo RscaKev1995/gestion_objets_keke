@@ -3,11 +3,12 @@ import { Article } from '../models/article.interface';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../services/auth-service.service';
 import { User } from '../models/user.interface';
-import { Router } from '@angular/router';
+import { NewArticleComponent } from '../new-article/new-article.component';
+
 @Component({
   selector: 'app-article',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NewArticleComponent],
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.css']
 })
@@ -24,9 +25,20 @@ export class ArticleComponent {
   selectedArticle?: Article;
   selectedCategory: string = 'Tout';
   currentUser: User | null;
+  showForm: boolean = false;
 
-  constructor(private authService: AuthService,private router: Router) {
+  constructor(private authService: AuthService) {
     this.currentUser = this.authService.getCurrentUser();
+  }
+
+  showNewArticleForm() {
+    this.showForm = true;
+  }
+
+  addArticle(newArticle: Article) {
+    newArticle.id = this.articles.length + 1;
+    this.articles.push(newArticle);
+    this.showForm = false;
   }
 
   showDetails(articleId: number) {
@@ -42,8 +54,4 @@ export class ArticleComponent {
       ? this.articles
       : this.articles.filter(article => article.category === this.selectedCategory);
   }
-  navigateToNewArticle() {
-    this.router.navigate(['/new-article']);
-  }
-  
 }

@@ -2,11 +2,16 @@
   Salut à toi cher {{ currentUser.username }}
   <button
     *ngIf="currentUser.username === 'kevyn'"
-    (click)="navigateToNewArticle()"
+    (click)="showNewArticleForm()"
   >
     Ajouter un article
   </button>
 </div>
+
+<app-new-article
+  *ngIf="showForm"
+  (articleAdded)="addArticle($event)"
+></app-new-article>
 
 <div class="filter">
   <button (click)="filterArticles('Tout')">Tout</button>
@@ -16,6 +21,7 @@
   <button (click)="filterArticles('Technologie')">Technologie</button>
   <button (click)="filterArticles('Cuisine')">Cuisine</button>
 </div>
+
 <div class="all_articles" [class.blur]="selectedArticle">
   <div class="article_little" *ngFor="let article of filteredArticles">
     <p>{{ article.name }}</p>

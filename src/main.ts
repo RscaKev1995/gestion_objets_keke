@@ -12,7 +12,7 @@ const routes = [
   { path: 'login', component: LoginComponent },
   { path: 'guest', component: GuestComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'new-article', component: NewArticleComponent }, // New route
+  { path: 'new-article', component: NewArticleComponent }, 
 ];
 
 const appConfig = {
