@@ -1,5 +1,11 @@
 <div *ngIf="currentUser" class="welcome-message">
   Salut à toi cher {{ currentUser.username }}
+  <button
+    *ngIf="currentUser.username === 'kevyn'"
+    (click)="navigateToNewArticle()"
+  >
+    Ajouter un article
+  </button>
 </div>
 
 <div class="filter">
@@ -10,7 +16,6 @@
   <button (click)="filterArticles('Technologie')">Technologie</button>
   <button (click)="filterArticles('Cuisine')">Cuisine</button>
 </div>
-
 <div class="all_articles" [class.blur]="selectedArticle">
   <div class="article_little" *ngFor="let article of filteredArticles">
     <p>{{ article.name }}</p>

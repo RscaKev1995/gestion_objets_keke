@@ -4,5 +4,5 @@ export interface Article {
     image: string;
     description: string;
     status: 'Disponible' | 'Disparu' | 'Indisponible';
-    category: 'Jeu' | 'Livre' | 'Vêtements' | 'Technologie' | 'Cuisine';
+    category: 'Jeu' | 'Livre' | 'Vêtements' | 'Technologie' | 'Cuisine' | 'Outil' ;
   }

@@ -5,12 +5,14 @@ import { HomePageComponent } from './app/components/home-page/home-page.componen
 import { LoginComponent } from './app/login/login.component';
 import { GuestComponent } from './app/guest/guest.component';
 import { RegisterComponent } from './app/register/register.component';
+import { NewArticleComponent } from './app/new-article/new-article.component';
+
 const routes = [
   { path: '', component: HomePageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'guest', component: GuestComponent },
-  {path: 'register' , component:RegisterComponent},
-
+  { path: 'register', component: RegisterComponent },
+  { path: 'new-article', component: NewArticleComponent }, // New route
 ];
 
 const appConfig = {

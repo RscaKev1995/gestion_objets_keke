@@ -3,6 +3,7 @@ import { Article } from '../models/article.interface';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../services/auth-service.service';
 import { User } from '../models/user.interface';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-article',
   standalone: true,
@@ -24,7 +25,7 @@ export class ArticleComponent {
   selectedCategory: string = 'Tout';
   currentUser: User | null;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService,private router: Router) {
     this.currentUser = this.authService.getCurrentUser();
   }
 
@@ -41,4 +42,8 @@ export class ArticleComponent {
       ? this.articles
       : this.articles.filter(article => article.category === this.selectedCategory);
   }
+  navigateToNewArticle() {
+    this.router.navigate(['/new-article']);
+  }
+  
 }
